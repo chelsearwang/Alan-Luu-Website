@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+  --bg-content:         #F5F5F5;
+  --panel-content:      #E8E8E8;
+  --text-content:       #1A1A1A;
+  --muted-content:      #888888;
+  --accent-content:     #2563EB;
+  --accent-content-dim: rgba(37, 99, 235, 0.12);
+
+  --bg-music:           #020B18;
+  --panel-music:        #041628;
+  --text-music:         #C8E6FF;
+  --muted-music:        #4A7FA5;
+  --accent-music:       #1D6FA4;
+  --accent-music-dim:   rgba(29, 111, 164, 0.2);
+
+  --transition: 0.4s ease;
+}
+
+body {
+  transition: background-color var(--transition), color var(--transition);
+}
