@@ -1,24 +1,41 @@
+'use client'
+
+import { profile, contentLinks, musicLinks } from '@/data/alan'
+import VideoList from '@/components/VideoList'
+import TrackList from '@/components/TrackList'
+import LinkList from '@/components/LinkList'
+
+type Section = 'about' | 'works' | 'links'
+
 type Props = {
   isMusicMode: boolean
+  activeSection: Section
 }
 
-export default function ContentPanel({ isMusicMode }: Props) {
+export default function ContentPanel({ isMusicMode, activeSection }: Props) {
   return (
-    <div className="absolute top-0 left-0 w-[55%] h-[calc(100vh-96px)] p-12 flex flex-col gap-6">
+    <div className="absolute top-0 left-0 w-[55%] h-[calc(100vh-96px)] p-12 flex flex-col gap-6 overflow-y-auto">
 
       <h1 className="text-8xl font-bold leading-none tracking-tight">
         ALAN<br />LUU
       </h1>
 
       <p className="text-sm opacity-60">
-        {isMusicMode ? 'placeholder text' : 'different placeholder text'}
+        {isMusicMode ? profile.tagline.music : profile.tagline.content}
       </p>
 
-      {/* Section content placeholder */}
-      <div className="mt-4 p-6 rounded-xl opacity-50"
-        style={{ background: isMusicMode ? 'var(--panel-music)' : 'var(--panel-content)' }}
-      >
-        section content goes here
+      <div className="mt-4 flex flex-col gap-4">
+
+        {activeSection === 'about' && (
+          <p className="opacity-70 leading-relaxed max-w-md">{profile.about}</p>
+        )}
+
+        {activeSection === 'works' && !isMusicMode && <VideoList />}
+        {activeSection === 'works' && isMusicMode && <TrackList />}
+
+        {activeSection === 'links' && !isMusicMode && <LinkList links={contentLinks} />}
+        {activeSection === 'links' && isMusicMode && <LinkList links={musicLinks} />}
+
       </div>
     </div>
   )
