@@ -9,13 +9,13 @@ export const profile = {
 }
 
 export const contentLinks = [
-  { label: 'YouTube',   url: 'https://youtube.com/@yourchannel' },
-  { label: 'Instagram', url: 'https://instagram.com/yourusername' },
+  { label: 'YouTube',   url: 'https://www.youtube.com/@alanluuu' },
+  { label: 'Instagram', url: 'https://www.instagram.com/alanluuu_/' },
   { label: 'Other Platform idk',    url: 'https://tiktok.com/@yourusername' },
 ]
 
 export const musicLinks = [
-  { label: 'Spotify',     url: 'https://open.spotify.com/artist/id' },
+  { label: 'Spotify',     url: 'https://open.spotify.com/artist/4MhAs6owaq7efiDkymW7Rs?si=j_iLAEFQSW-bL_oUeNPDgg' },
   { label: 'Apple Music', url: 'https://music.apple.com/artist/id' },
 ]
 
@@ -46,15 +46,15 @@ export const videos = [
 export const tracks = [
   {
     id: 1,
-    title: 'Track One',
-    description: 'Album Name · 2024',
-    src: '/music/track-one.mp3', // put mp3s in /public/music/
+    title: 'Aero Era',
+    description: 'Single · 2026',
+    src: '/music/AeroEra.mp3', // put mp3s in /public/music/
   },
   {
     id: 2,
-    title: 'Track Two',
-    description: 'Single · 2024',
-    src: '/music/track-two.mp3',
+    title: 'ONETWO',
+    description: 'Single · 2026',
+    src: '/music/ONETWO.mp3',
   },
   {
     id: 3,

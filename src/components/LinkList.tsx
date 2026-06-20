@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from 'react'
+
 type Link = {
   label: string
   url: string
@@ -8,6 +12,8 @@ type Props = {
 }
 
 export default function LinkList({ links }: Props) {
+  const [hoveredLabel, setHoveredLabel] = useState<string | null>(null)
+
   return (
     <div className="flex flex-col gap-3">
       {links.map(link => (
@@ -16,8 +22,14 @@ export default function LinkList({ links }: Props) {
           href={link.url}
           target="_blank"
           rel="noreferrer"
-          className="flex items-center justify-between p-4 rounded-xl border transition-all duration-300 hover:opacity-80"
-          style={{ border: '1px solid var(--muted-content)44' }}
+          onMouseEnter={() => setHoveredLabel(link.label)}
+          onMouseLeave={() => setHoveredLabel(null)}
+          className="flex items-center justify-between p-4 rounded-xl transition-all duration-300"
+          style={{
+            border: '1px solid var(--muted-content)44',
+            backgroundColor: hoveredLabel === link.label ? 'var(--accent-content-dim)' : 'transparent',
+            color: hoveredLabel === link.label ? 'var(--accent-content)' : 'inherit',
+          }}
         >
           <span className="font-medium text-sm">{link.label}</span>
           <span className="text-xs opacity-40">↗</span>
